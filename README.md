@@ -2,6 +2,9 @@
 
 Little web tool to create multiple secure passwords to use on your favorite online services / websites from a given memorable master password of your choice.
 
+- **Live Demo : [https://alterebro.github.io/password-generator/](https://alterebro.github.io/password-generator/)**
+
+
 ## Usage
 
 There is only one global function called `passgen` with three possible parameters:
@@ -12,6 +15,7 @@ There is only one global function called `passgen` with three possible parameter
 
 ```javascript
 passgen('foo', 'facebook.com', 8);
+
 // outputs : C{,7!hv?
 ```
 
@@ -30,24 +34,20 @@ passgen('foo', 'linkedin.com', 8);
 
 ## Development
 
-Clone repository:
-
+- Clone repository:
 ```sh
 git clone https://github.com/alterebro/password-generator.git
 ```
 
-Install dependencies:
-
+- Install dependencies:
 ```sh
 npm install
 ```
 
-Build
-
+- Build
 ```sh
 gulp
 ```
-
 
 ---
 
