@@ -8,6 +8,10 @@
 		return pass.slice(0, size);
 	}
 
-	window.passgen = passgen;
+	if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+		module.exports = passgen;
+	} else {
+		window.passgen = passgen;
+	}
 
 })(this);
