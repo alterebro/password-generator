@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Password Generator</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="description" content="Create multiple secure passwords for all your online networks from a given master password of your choice." />
+	<meta name="keywords" content="password, secure, pass, code" />
+	<meta name="author" content="Jorge Moreno aka moro, moro.es (@alterebro)" />
+	<meta name="MobileOptimized" content="width" />
+	<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, initial-scale=1, shrink-to-fit=no" />
+    <meta name="robots" content="index, follow" />
+	<meta name="google" content="notranslate" />
+	<meta name="mobile-web-app-capable" content="yes" />
+	<meta name="theme-color" content="#222222" />
+	<meta name="msapplication-navbutton-color" content="#222222" />
+	<meta name="msapplication-TileColor" content="#222222" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<meta name="apple-mobile-web-app-title" content="Password Generator" />
+	<link rel="me" href="https://twitter.com/alterebro" />
+	<style>
+	html, body {
+		margin: 0;
+		padding: 0;
+		background: #f0f0f0;
+		color: #222;
+	}
+	html {
+		font-family: 'Helvetica Neue', Helvetica, serif;
+		font-weight: 400;
+		font-size: 62.5%;
+		line-height: 1.15;
+		-ms-text-size-adjust: 100%;
+		-webkit-text-size-adjust: 100%;
+		box-sizing: border-box;
+	}
+	body {
+		font-size: 1.6em;
+		line-height: 1.45;
+		width: 90%;
+		max-width: 60rem;
+		margin: 0 auto;
+	}
+	*, *:before, *:after {
+		box-sizing: inherit;
+		-webkit-transition: all 0.3s ease-out;
+		transition: all 0.3s ease-out;
+	}
+
+
+	input, select, button {
+		font-family: 'Helvetica Neue', Helvetica, serif;
+		font-size: 100%;
+		line-height: 1.15;
+		margin: 0;
+	}
+
+	input {
+		width: 100%;
+		height: 3rem;
+		line-height: 3rem;
+		padding: 0 1rem;
+	}
+
+	button {
+		-webkit-appearance: button;
+		display: inline-block;
+		height: 4rem;
+		line-height: 4rem;
+		padding: 0 4rem;
+		text-align: center;
+		white-space: nowrap;
+		cursor: pointer;
+		border: none;
+		border-radius: 2rem;
+		background: #333;
+		color: #f0f0f0;
+	}
+	button::-moz-focus-inner {
+		border-style: none;
+		padding: 0;
+	}
+	button:-moz-focusring {
+		outline: 1px dotted ButtonText;
+	}
+	button:hover {
+		background: #000;
+		color: #fff;
+	}
+	button:focus {
+		outline: none;
+	}
+
+	dl {
+		margin: 0;
+		padding: 2rem 0 0;
+		display: flex;
+		align-items: flex-start;
+	    flex-wrap: wrap;
+	}
+	dl dt {
+		margin: 0;
+		padding: 0 0 1rem;
+		width: 50%;
+	}
+	dl dd {
+		margin: 0;
+		padding: 0 0 1rem;
+		width: 50%;
+	}
+
+	#passgen {
+		font-weight: bolder;
+		color: #900;
+	}
+	a {
+		color: #900;
+	}
+	a:hover {
+		color: #000;
+	}
+	</style>
+</head>
+<body>
+
+<header>
+	<h1>Password Generator</h1>
+	<p>
+		Little web tool to create multiple secure passwords to use on your favorite online services / websites from a
+		given memorable master password of your choice.
+	</p>
+	<p>
+		Output is using the following characters set / alphabet:
+		<code>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!#$%&amp;'()*+,-./:;<=>?@[\]^_`{|}~"</code>
+	</p>
+	<hr />
+</header>
+
+<main>
+	<dl>
+		<dt>
+			<label for="pass">Your Master Password</label>
+			<br /><small>i.e <em>HolyRaccoon</em></small>
+		</dt>
+		<dd>
+			<input type="password" id="pass" placeholder="HolyRaccoon">
+		</dd>
+
+		<dt>
+			<label for="site">Online Service / Website Name</label>
+			<br /><small>i.e <em>facebook.com</em></small>
+		</dt>
+		<dd>
+			<input type="text" id="site" list="services" placeholder="facebook.com">
+			<datalist id="services">
+				<option value="amazon">
+				<option value="ebay">
+				<option value="facebook">
+				<option value="flickr">
+				<option value="github">
+				<option value="google">
+				<option value="instagram">
+				<option value="linkedin">
+				<option value="paypal">
+				<option value="pinterest">
+				<option value="tumblr">
+				<option value="twitter">
+			</datalist>
+		</dd>
+
+		<dt>
+			<label for="size">Generated Password length</label>
+			<br /><small>8 to 16 characters</small>
+		</dt>
+		<dd>
+			<select id="size">
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option>
+				<option value="13">13</option>
+				<option value="14">14</option>
+				<option value="15">15</option>
+				<option value="16">16</option>
+			</select>
+		</dd>
+	</dl>
+	<p><button type="button" id="generate">Generate Password</button></p>
+
+	<div id="output">
+		<dl>
+			<dt><strong>Your generated password:</strong></dt>
+			<dd><input type="text" id="passgen" /></dd>
+		</dl>
+	</div>
+</main>
+
+<footer>
+	<hr />
+	<p><a href="https://twitter.com/alterebro">@alterebro</a>, 2017</p>
+</footer>
+
+<script type="text/javascript" src="passgen.min.js"></script>
+<script type="text/javascript">
+
+document.querySelector('#generate').onclick = function() {
+	var pass = document.querySelector('#pass').value;
+	var site = document.querySelector('#site').value;
+	var size = parseInt(document.querySelector('#size').value);
+
+	/*
+	var output = ( !!pass.length && !!site.length && !!size )
+		? 'Your secure password for ' + site  + ' is: <input type="text">' + passgen(pass, site, size) + '</input>'
+		: '<strong>Error</strong>: Please fill all the input text boxes';
+
+	document.querySelector('#output').innerHTML = output;
+	*/
+
+	document.querySelector('#passgen').value = passgen(pass, site, size);
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "password-generator",
+  "version": "1.0.0",
+  "description": "Secure multiple password generator based on a given memorable passcode of your choice",
+  "main": "src/password-generator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jorge Moreno, www.moro.es. (@alterebro)",
+  "license": "ISC",
+  "dependencies": {
+    "bases": "^0.2.1",
+    "blueimp-md5": "^2.7.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-uglify": "^2.1.2"
+  }
+}
