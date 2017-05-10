@@ -182,7 +182,6 @@
 <body>
 
 <div id="container">
-
 	<header>
 		<h1>Password Generator</h1>
 		<p>
@@ -266,28 +265,19 @@ abcdefghijklmnopqrstuvwxyz
 			<small><a href="https://github.com/alterebro/password-generator">MIT License</a>.</small>
 		</p>
 	</footer>
-
 </div>
 
 <script type="text/javascript" src="passgen.min.js"></script>
 <script type="text/javascript">
-
 document.querySelector('#generate').onclick = function() {
-	var pass = document.querySelector('#pass').value;
-	var site = document.querySelector('#site').value;
-	var size = parseInt(document.querySelector('#size').value);
 
-	/*
-	var output = ( !!pass.length && !!site.length && !!size )
-		? 'Your secure password for ' + site  + ' is: <input type="text">' + passgen(pass, site, size) + '</input>'
-		: '<strong>Error</strong>: Please fill all the input text boxes';
+	document.querySelector('#passgen').value = passgen(
+		document.querySelector('#pass').value, // pass
+		document.querySelector('#site').value, // site
+		parseInt(document.querySelector('#size').value) // size
+	);
 
-	document.querySelector('#output').innerHTML = output;
-	*/
-
-	document.querySelector('#passgen').value = passgen(pass, site, size);
 }
-
 </script>
 </body>
 </html>
