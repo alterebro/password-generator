@@ -297,8 +297,8 @@ document.querySelector('#generate').onclick = function() {
 	var size = document.querySelector('#size').value;
 
 	document.querySelector('#passgen').value = passgen( pass, site, size );
+	document.querySelector('#passgen').focus();
 	document.querySelector('#service').innerHTML =  '<br />For: <em>' + ((!!site) ? site : 'No Service' ) + '</em>';
-
 }
 </script>
 </body>
