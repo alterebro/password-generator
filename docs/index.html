@@ -177,6 +177,9 @@
 		background-position: 98% center;
 		background-size: auto 50%;
 	}
+	footer p {
+		font-size: 86.5%;
+	}
 	</style>
 </head>
 <body>
@@ -189,11 +192,13 @@
 			given memorable master password of your choice.
 		</p>
 		<p>
-			The generated password will use the following alphabet (all the 94 printable ASCII Chracaters)
-			which includes uppercase, lowercase letters, numbers and symbols:
-			<pre><code>ABCDEFGHIJKLMNOPQRSTUVWXYZ
-abcdefghijklmnopqrstuvwxyz
-0123456789!#$%&amp;'()*+,-./:;<=>?@[\]^_`{|}~"</code></pre>
+			The generated password will use the 94 printable ASCII Chracaters
+			which include uppercase, lowercase letters, numbers and symbols.
+		</p>
+		<p>
+			This script works on the browser using JavaScript so <strong>no password is stored or collected in anyway</strong>,
+			the source code is available at GitHub <a href="https://github.com/alterebro/password-generator">alterebro/password-generator</a>
+			where you can get it to play around with it.
 		</p>
 		<hr />
 	</header>
@@ -268,10 +273,17 @@ abcdefghijklmnopqrstuvwxyz
 	<footer>
 		<hr />
 		<p>
-			<small>
+			<strong>How does it work?</strong>
+			<br />The master password of your choice and the online service / website inputs are hashed using the
+			<a href="https://en.wikipedia.org/wiki/MD5">MD5</a> algorithm, both strings concatenated are hashed
+			again resulting in a HEX 32 chars length string / hash. This one is converted from base 16 (hex) to
+			base 94 (using the custom alphabet made of the 94 printable ASCII characters). Finally the Base94
+			string is trimmed to match the length passed as a parameter.
+		</p>
+
+		<p>
 			Jorge Moreno <strong><a href="https://twitter.com/alterebro">@alterebro</a></strong>, 2017.
 			<a href="https://github.com/alterebro/password-generator">MIT License</a>.
-			</small>
 		</p>
 	</footer>
 </div>

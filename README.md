@@ -5,6 +5,13 @@ Little web tool to create multiple secure passwords to use on your favorite onli
 - **Live Demo : [https://alterebro.github.io/password-generator/](https://alterebro.github.io/password-generator/)**
 
 
+### How does it work
+
+The master password of your choice and the online service / website inputs are hashed using the [MD5](https://en.wikipedia.org/wiki/MD5) algorithm, both strings concatenated are hashed again resulting in a HEX 32 chars length string / hash. This one is converted from base 16 (hex) to base 94 (using the custom alphabet made of the 94 printable ASCII characters). Finally the Base94 string is trimmed to match the length passed as a parameter.
+
+**This script works on the browser using JavaScript so no password is stored or collected in anyway**.
+
+
 ## Usage
 
 There is only one global function called `passgen` with three possible parameters:
