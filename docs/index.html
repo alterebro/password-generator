@@ -232,7 +232,7 @@ abcdefghijklmnopqrstuvwxyz
 
 			<dt>
 				<label for="size">Generated Password length</label>
-				<br /><small>8 to 16 characters</small>
+				<br /><small>8 to 20 characters</small>
 			</dt>
 			<dd>
 				<select id="size">
@@ -244,7 +244,11 @@ abcdefghijklmnopqrstuvwxyz
 					<option value="13">13</option>
 					<option value="14">14</option>
 					<option value="15">15</option>
-					<option value="16">16</option>
+					<option value="16" selected="selected">16</option>
+					<option value="17">17</option>
+					<option value="18">18</option>
+					<option value="19">19</option>
+					<option value="20">20</option>
 				</select>
 			</dd>
 		</dl>
@@ -252,7 +256,10 @@ abcdefghijklmnopqrstuvwxyz
 
 		<div id="output">
 			<dl>
-				<dt><strong>Your generated password:</strong></dt>
+				<dt>
+					<label for="passgen"><strong>Your generated password:</strong></label>
+					<small id="service"></small>
+				</dt>
 				<dd><input type="text" id="passgen" readonly="readonly" /></dd>
 			</dl>
 		</div>
@@ -261,8 +268,10 @@ abcdefghijklmnopqrstuvwxyz
 	<footer>
 		<hr />
 		<p>
-			Jorge Moreno <a href="https://twitter.com/alterebro">@alterebro</a>, 2017.
-			<small><a href="https://github.com/alterebro/password-generator">MIT License</a>.</small>
+			<small>
+			Jorge Moreno <strong><a href="https://twitter.com/alterebro">@alterebro</a></strong>, 2017.
+			<a href="https://github.com/alterebro/password-generator">MIT License</a>.
+			</small>
 		</p>
 	</footer>
 </div>
@@ -271,11 +280,12 @@ abcdefghijklmnopqrstuvwxyz
 <script type="text/javascript">
 document.querySelector('#generate').onclick = function() {
 
-	document.querySelector('#passgen').value = passgen(
-		document.querySelector('#pass').value, // pass
-		document.querySelector('#site').value, // site
-		parseInt(document.querySelector('#size').value) // size
-	);
+	var pass = document.querySelector('#pass').value;
+	var site = document.querySelector('#site').value;
+	var size = document.querySelector('#size').value;
+
+	document.querySelector('#passgen').value = passgen( pass, site, size );
+	document.querySelector('#service').innerHTML =  '<br />For: <em>' + ((!!site) ? site : 'No Service' ) + '</em>';
 
 }
 </script>
